@@ -24,14 +24,14 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 	
-	/*@ExceptionHandler(value = { AccountNotFoundException.class })
-	public ResponseEntity<ResponseError> ageException(Exception e) {
-		ResponseError error = new ResponseError(e.getMessage(), HttpStatus.BAD_REQUEST.value());
+	@ExceptionHandler(value = { AccountNotFoundException.class })
+	public ResponseEntity<ErrorReponse> ageException(Exception e) {
+		ErrorReponse error = new ErrorReponse(e.getMessage(), HttpStatus.BAD_REQUEST.value());
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
 	}
 	
-	@ExceptionHandler(PayeeDoesNotExistsException.class)
+	/*@ExceptionHandler(PayeeDoesNotExistsException.class)
 	public ResponseEntity<ResponseError> payeeExceptionHandler(PayeeDoesNotExistsException ex)
 	{
 		ResponseError error =  new ResponseError(ex.getMessage(), HttpStatus.NOT_FOUND.value());
